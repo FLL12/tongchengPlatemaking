@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/totalTarget.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+
+	</head>
+
+	<body>
+	
+		<div class="mui-bar mui-bar-nav" style="background: url(images/header_base_01.png);">
+			 <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title" style="color: white;">首页</h1>
+		</div>
+		<div class="mui-content" id="mui-content"> 
+		 	
+			<div id="slider" class="mui-slider" style="margin-top: 10px;" >
+			  <div class="mui-slider-group mui-slider-loop">
+			    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+			    <div class="mui-slider-item mui-slider-item-duplicate">
+			      <a href="#">
+			        <img src="images/04.png" style="height: 300px;width: 400px;">
+			      </a>
+			    </div>
+			    <!-- 第一张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="images/01.png"  style="height: 300px;width: 400px;"> 
+			      </a>
+			    </div>
+			    <!-- 第二张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="images/02.png"  style="height: 300px;width: 400px;">
+			      </a>
+			    </div>
+			    <!-- 第三张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="images/03.png"  style="height: 300px;width: 400px;">
+			      </a>
+			    </div>
+			    <!-- 第四张 -->
+			    <div class="mui-slider-item">
+			      <a href="#">
+			        <img src="images/04.png"  style="height: 300px;width: 400px;">
+			      </a>
+			    </div>
+			    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+			    <div class="mui-slider-item mui-slider-item-duplicate">
+			      <a href="#">
+			        <img src="images/01.png"  style="height: 300px;width: 400px;"> 
+			      </a>
+			    </div>
+			  </div>
+			  <div class="mui-slider-indicator">
+			    <div class="mui-indicator mui-active"></div>
+			    <div class="mui-indicator"></div>
+			    <div class="mui-indicator"></div>
+			    <div class="mui-indicator"></div>
+			  </div>
+			</div>
+			<p style="margin-top: 10px;margin-left: 10px;">
+				公司最新动态 
+			</p>
+			<ul class="mui-table-view" id="homePageContent">
+			        <li class="mui-table-view-cell">
+			        	<input type="hidden" value="">
+			            <a class="mui-navigate-right">
+			                Item 1
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                 Item 2
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                 Item 3
+			            </a>
+			        </li>
+			    </ul>
+			<div style="height: 20px;"></div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/homePage.js"></script>
+	</body>
+
+</html>

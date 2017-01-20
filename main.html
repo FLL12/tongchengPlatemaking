@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+			.bottom_img{
+				height: 90%;
+				width: 80%;
+			}
+			.bottom_word{
+				color: #666666;
+				font-size: 1rem;
+			}
+			.mui-active>span{
+				color: #3d50a1;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<nav class="mui-bar mui-bar-tab" id="test" style="position: fixed;"> 
+			<a class="mui-tab-item mui-active" data-index="0">
+				<span class="mui-icon"><img src="images/m1-1.png" class="bottom_img bottom_img1"></span>
+				<span class="mui-tab-label" class="bottom_word bottom_word1">首页</span>
+			</a>
+			<a class="mui-tab-item" data-index="1">
+				<span class="mui-icon"><img src="images/m2.png" class="bottom_img bottom_img2"></span>
+				<span class="mui-tab-label" class="bottom_word bottom_word2">询价</span>
+			</a>
+			<a class="mui-tab-item" data-index="2">
+				<span class="mui-icon"><img src="images/m3.png" class="bottom_img bottom_img3"></span>
+				<span class="mui-tab-label" class="bottom_word bottom_word3">跟单</span>
+			</a>
+			<a class="mui-tab-item" data-index="3">
+				<span class="mui-icon"><img src="images/m4.png" class="bottom_img bottom_img4"></span>
+				<span class="mui-tab-label" class="bottom_word bottom_word4">历史</span>
+			</a>
+		</nav>
+		<div style="position: absolute;top: 0px;bottom: 0px;left: 0px;right: 0px;background: black;opacity: 0.3;z-index: 100;display: none;" id="backDrop"></div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js">
+		</script> 
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: false  //关闭back按键监听
+					}
+			});
+			var a = 0;
+			var subpage = ["homePage.html", "enquiry.html", "documentary.html", "service.html"];
+			function cutWebviewI(url) {
+				var startIndex = url.lastIndexOf("/");
+				var endIndex = url.lastIndexOf(".html");
+				var wvId = url.substring(startIndex + 1, endIndex);
+				return wvId;
+			}
+			mui.plusReady(function() {
+				/**
+				 * 当前窗口对象，即父窗口；
+				 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.currentWebview
+				 */
+				var self = plus.webview.currentWebview();
+				 
+				// 子窗口地址数组
+				var subpages = ["homePage.html", "enquiry.html", "documentary.html", "service.html"];
+				// 子窗口样式
+				var subStyles = {
+					top: "0px",
+					bottom: "50px",
+					scrollIndicator:'none',
+					
+				};
+				// 子窗口数量
+				var subLen = subpages.length;
+				// 子窗口对象数组
+				var subWvs = [];
+				/*// 标题栏
+				var title = document.querySelector(".mui-title");*/
+				// 底部选项
+				var tabs = document.querySelectorAll(".mui-tab-item");
+				// 底部文字
+				var labels = document.querySelectorAll(".mui-tab-label");
+				// 当前页面索引，初始化为0；
+				var activeIndex = 0;
+				// 目标页面索引，初始化为当前页面索引；
+				var targetIndex = activeIndex;
+				// 创建子页面
+				for(var i = 0; i < subLen; i++) {
+					/**
+					 * 创建窗口对象，并将索引做为额外的参数传递；
+					 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.create
+					 */
+					var subWv = plus.webview.create(subpages[i], cutWebviewId(subpages[i]), subStyles, {
+						index: i
+						
+					});
+					subWv.addEventListener('loading',function () {
+						plus.nativeUI.showWaiting('正在加载')
+					})
+					subWv.addEventListener('loaded',function () {		
+						plus.nativeUI.closeWaiting()	
+					})
+					// 窗口对象添加至数组
+					subWvs.push(subWv);
+					if(i > 0) {
+						/**
+						 * 隐藏非第一页的窗口对象
+						 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.hide
+						 */
+						subWv.hide("none");
+					}
+					/**
+					 * 向父窗口添加子窗口
+					 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.append
+					 */
+					self.append(subWv);
+				}
+			
+				// 底部选项卡点击切换事件
+				for(var j = 0, jlen = tabs.length; j < jlen; j++) {
+					tabs[j].addEventListener("tap", function() {
+					//	this.childNodes[1].innerHTML = "<img src='images/m1.png' style='width: 100%;height: 100%;'>"
+					
+						// 获取当前结点的索引
+						targetIndex = this.getAttribute("data-index");
+						// 转换为number类型
+						targetIndex = parseInt(targetIndex, 10);
+						a = targetIndex;
+						if(targetIndex == activeIndex) {
+							return;
+						}
+						// 切换页面
+						switchPage("tap", activeIndex, targetIndex);
+					});
+				} 
+				// 子页面滑动切换事件
+				window.addEventListener("swipe_event", function(event) {
+					// 获取方向以及索引
+					var direction = event.detail.direction;
+					activeIndex = event.detail.index;
+					if(direction == "left") {
+						// 如果是最后一个页面，则不做左滑切换；
+						if(activeIndex == subLen - 1) {
+							console.log("最右边一页了");
+							return;
+						}
+						// 目标页面的索引为后面一位
+						targetIndex = activeIndex + 1;
+					} else {
+						// 如果是第一个页面，则不做右滑切换；
+						if(activeIndex == 0) {
+							console.log("最左边一页了");
+							return;
+						}
+						// 目标页面的索引为前面一位
+						targetIndex = activeIndex - 1;
+					}
+					// 切换页面
+					switchPage("switch", activeIndex, targetIndex);
+				});
+
+				
+
+
+				/**
+				 * 切换页面
+				 * @param {String} _event 事件类型
+				 * @param {Number} _active 当前页面索引
+				 * @param {Number} _target 目标页面索引
+				 */
+				function switchPage(_event, _active, _target) {
+					
+					/**
+					 * 目标页面展示
+					 * http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.show
+					 */
+					var length = document.getElementsByClassName('bottom_img').length;
+					for ( var i = 1; i < length + 1; i ++) {
+						//console.log(document.getElementsByClassName('bottom_word'+i)[0].innerHTML);
+						document.getElementsByClassName('bottom_img'+i)[0].setAttribute('src','images/m'+i+'.png')
+					}
+					var num = _target + 1;
+					document.getElementsByClassName('bottom_img'+num)[0].setAttribute('src','images/m'+num+'-1.png')
+					subWvs[_target].show("fade-in",300,function () {
+						
+					});
+					// 顶部文字替换
+				//	title.innerText = labels[_target].innerText;
+					// 如果是滑动事件，则手动切换高亮选项；
+					if(_event == "switch") {
+						tabs[_active].classList.remove("mui-active");
+						tabs[_target].classList.add("mui-active");
+					}
+					// 之前展示的页面隐藏
+					subWvs[_active].hide("none");
+					// 更新当前页索引
+					activeIndex = _target;
+				};
+				
+			
+			});
+			
+			/**
+			 * 截取url地址，获取窗口的id；
+			 * @param {String} url html文件的路径
+			 * @param {String} wvId webviewObject的id
+			 */
+			function cutWebviewId(url) {
+				var startIndex = url.lastIndexOf("/");
+				var endIndex = url.lastIndexOf(".html");
+				var wvId = url.substring(startIndex + 1, endIndex);
+				return wvId;
+			}
+				/*var maskMain = mui.createMask(function () {
+					//mui.fire(plus.webview.getWebviewById("totalTarget"),"menu:click");
+					
+				});*/
+				
+				window.addEventListener("main:maskShow",maskShow);
+				function maskShow () {
+					//maskMain.show();
+					plus.webview.currentWebview().setStyle({
+						mask: "rgba(0,0,0,0.5)"
+					});
+					plus.webview.currentWebview().addEventListener("maskClick", function() {
+						mui.fire(plus.webview.getWebviewById(cutWebviewI(subpage[a])),'closeMenu');		
+						plus.webview.currentWebview().setStyle({
+							mask: "none"
+						});	
+					}, false);
+				}
+				window.addEventListener("main:maskClose",maskClose);
+				function maskClose () {
+					//maskMain.close();
+					mui("#backDrop")[0].style.display = "none";
+				}
+				window.addEventListener("main:relative",function () {
+					document.getElementById("test").style.opacity = '0';
+				})
+				window.addEventListener("main:fix",function () {
+					document.getElementById("test").style.opacity = '1';
+				})
+				
+				//mask.show();
+				//maskMain.close();
+		</script>
+	</body>
+
+</html>

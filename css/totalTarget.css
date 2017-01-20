@@ -1,0 +1,228 @@
+@media only screen and (max-width:540px) {
+	#totalTarget_userName {
+		top: 24.47%
+	}
+}
+
+@media only screen and (max-width:375px) {
+	#totalTarget_userName {
+		top: 24.47%
+	}
+}
+@media only screen and (max-width:360px) {/*moto*//*ios基础上为安卓端修改*/
+	/*moto z 参数：2560*1440*/
+	#totalTarget_userImg{
+		top: 8.5%; 
+	}
+	#totalTarget_userName{
+		top: 26%;
+	}
+	#totalTarget_department{
+		top: 31%;
+	}
+	
+}
+@media only screen and (max-width:320px) {
+	#totalTarget_userName {
+		top: 25.47%
+	}
+}
+
+.header-for-time-area {
+	height: 38.42%;
+	width: 100%;
+	background: url(../images/login_01_01.png);
+	background-size: cover;
+}
+
+.header-for-time-area>div {
+	background: none;
+	box-shadow: none;
+	margin-top: 14px;
+	position: absolute;
+}
+
+.header-for-time-area>div>.mui-title {
+	color: white;
+	font-size: 1.215rem;
+}
+
+.header-for-time-area>div>.mui-icon-close {
+	color: white;
+	transform: scale(0.92);
+	position: relative;
+	bottom: 1px;
+}
+
+#search {
+	color: white;
+	position: relative;
+	right: 3px;
+}
+
+.ztzb_userImg {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	position: absolute;
+	top: 9%;
+	margin-left: calc(50% - 40px);
+	overflow: hidden;
+}
+
+.ztzb_userImg>img {
+	height: 100%;
+	width: 100%;
+}
+
+.ztzb_userName {
+	width: 100%;
+	position: absolute;
+	color: white;
+	font-size: 1.215rem;
+	margin-top: 7px;
+	text-align: center;
+}
+
+.ztzb_department {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 29%;
+	color: #eee;
+	font-size: 1.1rem;
+}
+
+.ztzb_area {
+	width: 60%;
+	text-align: left;
+	position: absolute;
+	top: 34%;
+	color: #eee;
+	font-size: 1.1rem;
+	left: 4.5%;
+}
+
+.ztzb_time {
+	width: 35%;
+	text-align: center;
+	position: absolute;
+	top: 34%;
+	color: #eee;
+	font-size: 1rem;
+	right: 4px;
+}
+
+.header-for-time-area>span {
+	position: absolute;
+	top: 34%;
+	color: white;
+	right: 12px;
+	font-size: 1.65rem;
+}
+
+.mui-content>dl>dt {
+	margin-left: 17.3px;
+	margin-top: 13px;
+}
+
+.mui-content>dl>dt>img {
+	height: 18px;
+	width: 18px;
+	vertical-align: middle;
+}
+
+.mui-content>dl>dt>span {
+	color: #666666;
+	display: inline-block;
+	font-size: 1.215rem;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.mui-content>dl>dd {
+	margin-left: 0px;
+	background: white;
+	width: calc(100% - 0px);
+	margin-top: 7px;
+	border: 1px solid #ddd;
+	border-radius: 0px;
+	height: 70px;
+}
+
+.mui-content>dl>dd>ul {
+	list-style: none;
+	display: flex;
+	height: 100%;
+	justify-content: space-around;
+}
+
+.mui-content>dl>dd>ul>li {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.mui-content>dl>dd>ul>li>dl>dt {
+	text-align: left;
+	font-size: 1.5rem;
+	margin-top: 0px;
+}
+
+.mui-content>dl>dd>ul>li>dl>dd {
+	margin-left: 0;
+	text-align: center;
+	color: #999999;
+	font-size: 1rem;
+	margin-top: 5px;
+}
+
+.mui-content .ztzb_checkWork {
+	height: 160px;
+	display: flex;
+}
+
+.mui-content .ztzb_checkWork_ul {
+	width: 60%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between
+}
+
+.mui-content .ztzb_checkWork_ul>li {
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.mui-content .ztzb_checkWork_ul>li:nth-child(odd) {
+	margin-left: 17px;
+}
+
+.mui-content .ztzb_checkWork_ul>li>dl>dt {
+	text-align: left;
+	color: black;
+	font-size: 1.5rem;
+}
+
+.mui-content .ztzb_checkWork_ul>li>dl>dd {
+	margin-left: 0;
+	text-align: center;
+	color: #999999;
+	font-size: 1rem;
+}
+.ztzb_checkWork>div{
+	width: 35%;
+	height: 100%;
+	margin-left: 2.5%;
+	padding-top: 3%;
+}
+.mui-content>dl>.faultTrend_dd{
+		height: 180px;
+	}
+.mui-content>dl>.faultTrend_dd>div{
+	width: 100%;
+	height: 100%;
+}

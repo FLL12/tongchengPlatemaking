@@ -1,0 +1,64 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 12px;
+	font-family: "黑体";
+}
+
+@media only screen and (max-width:320px) {
+	html,
+	body {
+		font-size: 10px;
+	}
+}
+@media only screen and (max-width:540px) {/*iphone7 plus console.log(width)*/
+	html,
+	body {
+		font-size: 13px;
+	}
+	
+}
+@media only screen and (max-width:375px) {/*iphone7 console.log(width)*/
+	/*适用于iphone7  换算标准 高 px*647/1920  宽 px*375/1080  */
+	html,
+	body {
+		font-size: 12px;
+	}
+}
+@media only screen and (max-width:360px) {/*moto*//*ios基础上为安卓端修改*/
+	/*moto z 参数：2560*1440*/
+	html,
+	body {
+		font-size: 11px;
+	}
+	
+}
+section {
+	height: 12%;
+	width: 100%;
+	background: url(../images/header_base_01.png);
+	background-size: cover;
+}
+
+section>.mui-bar-nav {
+	background: none;
+	box-shadow: none;
+	margin-top: 6%;
+	position: absolute;
+}
+
+section>.mui-bar-nav>a {
+	color: white;
+	transform: scale(0.92);
+	margin-right:1px;
+}
+
+section>.mui-bar-nav>h1 {
+	font-size: 1.215rem;
+}

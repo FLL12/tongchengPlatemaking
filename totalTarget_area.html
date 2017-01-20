@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/area.css" />
+	</head>
+
+	<body id="body">
+			<div class="area_header">
+				<span class="mui-icon"><img src="images/totalTarget_area.png"></span>
+				<h4>选择数据单位</h4>
+			</div>
+
+		<h3 id="first_grade" style="" class="second-grade"></h3>
+
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			swipeBack: false,
+			keyEventBind: {
+				backbutton: false  //关闭back按键监听
+				}
+		});
+		mui.plusReady(function() {
+
+			var areaArr = [];
+			var areaArrOrganiseUnitCode = [];
+			plus.nativeUI.showWaiting('加载中');
+			mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetOrganiseUnit?dataKey=00-00-00-00&userID=' + localStorage.getItem('userCodeVa'), {
+				async: false,
+				data: null,
+				dataType: 'json', //返回
+				type: 'get',
+				timeout: 5000,
+				success: function(data) {
+					//服务器返回响应，根据响应结果，分析是否登陆成功
+					var getDatas = data['DataSource']['Tables'][0]['Datas'];
+					document.getElementById('first_grade').innerHTML = getDatas[0].OrganiseUnitName;
+					for(var i = 1; i < getDatas.length; i++) {
+						var pEle = document.createElement('p');
+						pEle.setAttribute('class', 'second-grade');
+						pEle.innerHTML = getDatas[i].OrganiseUnitName;
+						areaArr.push(getDatas[i].OrganiseUnitName);
+						areaArrOrganiseUnitCode.push(getDatas[i].OrganiseUnitCode);
+						pEle.style.paddingLeft = '15.5%';
+						pEle.style.fontSize = '1.1rem';
+						pEle.style.color = '#ddd';
+						document.getElementById('body').appendChild(pEle);
+					};
+					areaArr.push(getDatas[0].OrganiseUnitName);
+					areaArrOrganiseUnitCode.push(getDatas[0].OrganiseUnitCode);
+					plus.nativeUI.closeWaiting();
+				},
+				error: function() {
+					//异常处理
+					mui.toast('数据请求失败')
+				}
+			});
+			//修改返回键
+			/*plus.key.addEventListener("backbutton",function (){
+					mui.fire(plus.webview.currentWebview().opener(),"dtpicker:close");
+				});*/
+			mui('#body').on("tap", ".second-grade", function() {
+				localStorage.setItem("areaName", this.innerHTML);
+				for(var i = 0; i < areaArr.length; i++) {
+					if(this.innerHTML == areaArr[i]) {
+						localStorage.setItem("OrganiseUnitCode", areaArrOrganiseUnitCode[i]);
+					}
+				};
+				mui.fire(plus.webview.getWebviewById('totalTarget'), "dtpicker:close");
+				setTimeout(function() {
+					mui.fire(plus.webview.getWebviewById('totalTarget'), "totalTarget:area");
+				}, 300)
+
+			})
+
+		})
+	</script>
+
+</html>

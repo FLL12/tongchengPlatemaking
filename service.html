@@ -1,0 +1,63 @@
+<!Doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/operationStatistics.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		
+		<style>
+			.mui-card .mui-control-content {
+				padding: 10px;
+			}
+			
+			#operationStatistics_pingjia {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: url(images/header_base_01.png);">
+		  
+		    <h1 class="mui-title" style="color: white;">历史订单</h1>
+		</header>
+		<div class="mui-content">
+			<div style="margin-top:20px;margin-left: 30px;text-align: left;">
+				<span>订单查询：</span><input id="searchContent" type="text" style="width: 120px;height: 30px;font-size: 12px;"placeholder="例:鸡蛋面">
+		    	<button type="button" id="search" class="mui-btn mui-btn-blue" style="margin-left: 20px;height: 30px;">查询</button>
+		    	<br/>
+		    </div>
+		    <p style="margin-top: 10px;margin-left: 20px;">个人订单记录：</p>
+		    <ul class="mui-table-view" id="serviceOrder">
+		            <li class="mui-table-view-cell" >
+		                <a class="mui-navigate-right"> 
+		                        时间xxxx年xx月xx日
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                         时间xxxx年xx月xx日
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		           	 时间xxxx年xx月xx日
+		                </a>
+		            </li>
+		        </ul>
+		     <p style="text-align: center;margin-top: 20px;">
+					<button type="button" class="mui-btn mui-btn-blue" id="btnReload">刷新</button>
+				</p>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/service.js"></script>
+	</body>
+
+</html>

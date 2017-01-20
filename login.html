@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<script type="text/javascript" charset="utf-8" src="js/login.js"></script>
+	</head>
+
+	<body >
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in" >
+		<!-- 菜单容器 -->
+			<aside class="mui-off-canvas-right" id="offCanvasSide">
+				<div class="mui-scroll-wrapper">			
+					<div class="mui-scroll menu_content">
+						<!-- 菜单具体展示内容 -->
+						<div class="login_menu">
+							<span class="mui-icon mui-icon-gear login_menu_gear"></span>
+							<h4 class='system_set'>系统设置</h4>
+						</div>
+						<div class="menu_address">
+							<p>服务器地址:</p>
+							<input id="serverAddress" name="menu_address" type="password" value="123.56.68.127" readonly="readonly">
+						</div>
+						<div class="menu_address menu_portNum">
+							<p>端口号:</p>
+							<input id="portNum" name="menu_portNum" type="password" value="80" readonly="readonly">
+						</div>
+						<div class="menu_address menu_versions">
+							<p>版本号:</p>
+							<p>shenM_v1.0.0</p>
+						</div>
+						
+						<!--<img src="images/login_system_logo_03.png">
+						<p>北京元心科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;2016</p>-->
+						<button id="save" type="button" class="mui-btn mui-btn-outlined">保存</button>
+					</div>
+				</div>
+			</aside>
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll" style="height: 100%;">
+						<!-- 主界面具体展示内容 -->
+						<div class="login_header">
+							<div id="logo" class="logo"></div>
+							<p id="logo_name_1" class="logo_name_2"></p><!--/*ios基础上为安卓端修改*/-->
+							<p id="logo_name_2" class="logo_name_1"></p><!--/*ios基础上为安卓端修改*/-->
+						</div>
+						<input id="userCode"class="userCode" type="text" placeholder="输入登录账号">
+						<img src="images/user.png" class="userCodeImg">
+						<input id="passWord" type="password" placeholder="输入登录密码"> 
+						<img src="images/password.png" class="passWordImg" >
+						<div class="mui-button-row">
+							<button  type="button" class="mui-btn mui-btn-primary" >登录</button>
+						</div>
+						<div id="mySwitch" class="mui-switch mui-switch-mini mui-switch-blue mui-active" >
+							<div class="mui-switch-handle"></div>
+						</div>
+						<h4 class="login rememberPassword">记住密码</h4>
+						<span class="mui-icon mui-icon-gear"></span>
+						<h4 id="system_setting" class="login system_setting">系统设置</h4>
+					</div>
+				</div>
+				<div class="mui-off-canvas-backdrop" id="backdrop"></div>
+			</div>
+		</div>
+		
+
+	</body>
+
+</html>

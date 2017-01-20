@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/checkStatistics_childrenWeb.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	</head>
+	<body>
+		<div class="mui-bar mui-bar-nav" style="background: url(images/header_base_01.png);">
+		    <a class=" mui-icon mui-icon-left-nav mui-pull-left" style="color: white;" id="back"></a>
+		    <h1 class="mui-title" style="color: white">正在询价订单列表</h1>
+		</div>
+		<div class="mui-content">
+		    <div style="width: 100%;">
+				<p style="margin-left: 15px;margin-top: 15px;font-size: 16px;">
+					订单状态：
+				</p>
+				<div style="width: 100%;" id="div"> 
+					<p style="margin-left: 35px;font-size: 12px;" id="orderNum"></p>
+					<p style="margin-left: 35px;font-size: 12px;" id="orderContent">订单详情:</p>
+					<p style="margin-left: 68px;font-size: 12px;width: 60%;" id="orderCon"></p>
+					<p style="margin-left: 35px;font-size: 12px;" id="enquiryStatus"></p>
+					
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+		mui.init();
+		mui.plusReady(function () {
+			var self  = plus.webview.currentWebview(); 
+			document.getElementById('orderNum').innerHTML ='订单编号：' + self.orderNum;
+			if ( self.color == 'rgb(255, 0, 102)') {
+				document.getElementById('enquiryStatus').style.color = 'red';
+				document.getElementById('enquiryStatus').innerHTML = '正在询价中，价格还未给出';
+			} else if ( self.color == 'rgb(0, 153, 51)') {
+				mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebRoot/GetAllOrder?Model=0&Type=0&Condition=&CreatedBy='+ localStorage.getItem('userCode') +'&CurrentPage=0&EachPage=10', {
+				data: null,
+				dataType: 'json', //返回
+				type: 'get',
+				timeout: 5000,
+				success: function(data) {
+					mui.each(data,function (index,item) {
+						if ( item.OrderCode == self.orderNum) {
+							document.getElementById('enquiryStatus').innerHTML = '根据订单厂方给出价格为：' + item.Price;
+							var p = document.createElement('p');
+							p.style.width = '100%';
+							p.style.borderRadius  = '5px solid #333';
+							p.style.textAlign = 'center';
+							p.innerHTML = "<button style='color:#454545;margin-right: 10px;' id='btnDelete'>价格不合适删除订单</button><button style='color:#454545;' id='btn'>价格合适确定下单</button>";
+							p.style.marginTop = '10px';
+							document.getElementById('div').appendChild(p);
+							document.getElementById("btnDelete").onclick = function () {
+								var jsonStr='{"OrderCode":"'+self.orderNum+
+								       '"}';
+   //http://123.56.68.127/WebRoot/DeleteOrderPhone?jsonStr={%22OrderCode%22:%22yongqing-20170116171911%22}
+   //http://123.56.68.127:80/DeleteOrderPhone?jsonStr={"OrderCode":"yongqing-20170117111817"}
+   //console.log('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") +  "/WebRoot/DeleteOrderPhone?jsonStr="+jsonStr)
+									mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") +  "/WebRoot/DeleteOrderPhone?jsonStr="+jsonStr,{
+										 data : null,
+										 type: "get",
+										 timeout : 5000,
+										 success: function (data) {
+										 	mui.back();
+											mui.fire(plus.webview.getWebviewById('enquiry'),'enquiry')       	
+										 },
+										error: function( msg ) {
+										
+											   alert("删除订单信息失败");
+										 }
+									});	
+							}
+							document.getElementById('btn').onclick = function () {
+								var confirmContent = '价格合适,确定下单，点击确定按钮之后，厂方即将开始按照订单内容制作';
+								var r  = confirm(confirmContent);
+								if ( r) {
+									mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum")  +'/WebRoot/LaunchOrder?OrderCode='+ self.orderNum +'&CreatedBy=' + localStorage.getItem('userCode'),{
+										data: null,	
+										type: 'get',
+										timeout: 5000,
+										success: function(data) {
+											mui.back();
+											mui.fire(plus.webview.getWebviewById('enquiry'),'enquiry')
+										},
+										error: function() {
+											//异常处理
+											mui.toast('数据请求失败') 
+										}
+									})
+								}else {
+									
+								}
+							}
+						}
+					})
+				},
+				error: function() {
+					//异常处理
+					mui.toast('数据请求失败') 
+				}
+			});
+				document.getElementById('enquiryStatus').style.color = 'green';
+				
+			} else if (self.color == 'rgb(153, 102, 0)') {
+				document.getElementById('enquiryStatus').innerHTML = '厂方以接单，准备制作';
+				document.getElementById('enquiryStatus').style.color = 'sandybrown';
+			}
+			mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebRoot/GetAllOrder?Model=0&Type=0&Condition=&CreatedBy='+ localStorage.getItem('userCode') +'&CurrentPage=0&EachPage=10', {
+				data: null,
+				dataType: 'json', //返回
+				type: 'get',
+				timeout: 5000,
+				success: function(data) {
+					mui.each(data,function (index,item) {
+						if ( item.OrderCode == self.orderNum) {
+							document.getElementById("orderCon").innerHTML = item.Remark;
+						}
+					})
+				},
+				error: function() {
+					//异常处理
+					mui.toast('数据请求失败') 
+				}
+			});
+			
+			document.getElementById("back").onclick = function () {
+					mui.back();
+					mui.fire(plus.webview.getWebviewById('enquiry'),'enquiry');
+					
+			}
+			
+			
+		})
+			
+		</script>
+	</body>
+</html>

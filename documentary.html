@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title> </title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/checkStatistics.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: url(images/header_base_01.png);">
+		   
+		    <h1 class="mui-title" style="color: white;">订单详情</h1>
+		</header>
+		<div class="mui-content">
+		    <div style="margin-top:20px;margin-left: 30px;text-align: left;">
+				<span>订单编号：</span><input id="searchContent" type="text" style="width: 120px;height: 30px;font-size: 12px;"placeholder="例:20170115">
+		    	<button type="button" id="search" class="mui-btn mui-btn-blue" style="margin-left: 20px;height: 30px;">查询</button>
+		    	<br/>
+		    </div>
+		    <hr style="width: 90%;margin-left: 5%;"></hr>
+		    <div style="margin-top: 10px;">
+		    	<p style="margin-left: 20px;">未完成订单列表</p>
+		    	<ul class="mui-table-view" style="border-radius: 5px;padding-left: 8px;" id="documentaryContent"> 
+		    	        <!--<li class="mui-table-view-cell" >
+		    	            <a class="mui-navigate-right" >
+		    	                SM-2017-01-12-15:00-001
+		    	            </a>
+		    	        </li>
+		    	        <li class="mui-table-view-cell">
+		    	            <a class="mui-navigate-right">
+		    	                 SM-2017-01-12-15:00-002
+		    	            </a>
+		    	        </li>
+		    	        <li class="mui-table-view-cell">
+		    	            <a class="mui-navigate-right">
+		    	                SM-2017-01-12-15:00-003
+		    	            </a>
+		    	        </li>-->
+		    	    </ul>
+		    	    
+	    	     <p style="text-align: center;margin-top: 20px;">
+					<button type="button" class="mui-btn mui-btn-blue" id="btnReload">刷新</button>
+				</p>
+		    </div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/documentary.js"></script>
+	</body>
+
+</html>

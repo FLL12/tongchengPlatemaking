@@ -1,0 +1,261 @@
+		@media only screen and (max-width:375px) {
+			/*适用于iphone7  换算标准 高 px*647/1920  宽 px*375/1080  */
+			#system_num {
+				top: 34.2%;
+			}
+			.logo {
+				margin-left: calc(50% - 0px);
+			}
+		}
+		/*
+base 
+ * 
+ * */
+		
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		html,
+		body {
+			height: 100%;
+			font-size: 12px;
+			font-family: "微软雅黑";
+		}
+		
+		input {
+			border: 1px solid #CCCCCC;
+			border-radius: 5px;
+			font-size: 1.2rem;
+		}
+		
+		p {
+			text-align: center;
+			font-family: "黑体"
+		}
+		
+		img {
+			height: 16.175px;
+			width: 16.175px;
+			position: relative;
+			right: 50%;
+			top: 2px;
+		}
+		
+		.login {
+			color: #666;
+			position: absolute;
+			font-family: '微软雅黑';
+			font-size: 1.2rem;
+			margin-top: 67.39px;
+		}
+		/*侧滑菜单 显示内容*/
+		
+		.mui-off-canvas-right {
+			width: 75%;
+			background: #454545;
+		}
+		
+		.mui-scroll {
+			height: 100%;
+		}
+		
+		.login_menu {
+			height: 107.8px;
+			width: 100%;
+			background-image: url(../images/index_system_setting.jpg);
+			background-size: cover;
+		}
+		
+		.login_menu>.login_menu_gear {
+			margin-left: 21px;
+			margin-top: 80px;
+			display: inline-block;
+			color: white;
+			float: left;
+		}
+		
+		.login_menu>.system_set {
+			color: white;
+			float: left;
+			margin-top: 81.875px;
+			margin-left: 2px;
+			font-size: 1.4rem;
+		}
+		
+		.menu_address {
+			height: 20.21px;
+			width: 100%;
+			margin-top: 34px;
+		}
+		
+		.menu_address>p {
+			height: 20.21px;
+			line-height: 20.21px;
+			text-align: left;
+			margin-left: 20.5px;
+			font-size: 1.2rem;
+			color: #ddd;
+			float: left;
+			width: 90px;
+		}
+		
+		.menu_address>input[name=menu_address] {
+			height: 20.21px;
+			color: #666;
+			float: left;
+			width: 121px;
+		}
+		
+		.menu_portNum {
+			margin-top: 17.18px;
+		}
+		
+		.menu_portNum>p {
+			margin-left: 49px;
+			width: 61.5px;
+		}
+		
+		.menu_portNum>input[name=menu_portNum] {
+			height: 20.21px;
+			color: #666;
+			float: left;
+			width: 121px;
+		}
+		
+		.menu_versions {
+			margin-top: 17.18px;
+		}
+		
+		.menu_versions>p:nth-child(1) {
+			margin-left: 49px;
+			width: 48px;
+		}
+		
+		.menu_versions>p:nth-child(2) {
+			width: 50px;
+			margin-left: 16px;
+		}
+		
+		.menu_content>button {
+			color: #ddd;
+			margin-left: 40%;
+			margin-top: 5%;
+			width: 30%;
+		}
+		
+		.menu_content>img {
+			position: absolute;
+			top: 89%;
+			bottom: 6%;
+			left: 5.5%;
+			height: 2.2rem;
+			width: 1.2rem;
+		}
+		
+		.menu_content>p {
+			position: absolute;
+			bottom: 6%;
+			left: 16%;
+		}
+		
+		.system_num {
+			width: 45%;
+			height: 3.125%;
+			color: #ddd;
+			font-size: 1rem;
+			position: absolute;
+			left: 38%;
+			top: 33.2%;
+		}
+		/*主菜单显示内容*/
+		
+		.logo>img {
+			height: 100%;
+			width: 100%;
+		}
+		
+		.login_header {
+			width: 100%;
+			height: 253.4px;/*ios基础上为安卓端修改*/
+			background: url(../images/login_01_01.png);
+			background-size: cover;
+			border: 1px solid #6699ff;
+		}
+		
+		.logo {
+			height: 80.875px;
+			width: 80.875px;
+			margin-top: 58.35px;/*ios基础上为安卓端修改*/
+			margin-left: calc(50% - 0px);
+		}
+		
+		.logo_name_1 {
+			color: #EEEEEE;
+			font-size: 1.1rem;
+			margin-top: 19.8px;/*ios基础上为安卓端修改*/
+		}
+		
+		.logo_name_2 {
+			color: #FFFFFF;
+			font-size: 1.8rem;
+			margin-top: 30.4px;/*ios基础上为安卓端修改*/
+		}
+		
+		.mui-scroll>input[type=text] {
+			margin-top: 43.8px;
+			height: 40.32px;
+			width: 50%;
+			margin-left: 25%;
+			padding-left: 6%;
+		}
+		
+		.userCodeImg {}
+		
+		input[type=password] {
+			height: 40.32px;
+			width: 50%;
+			margin-left: 25%;
+			padding-left: 6%;
+		}
+		
+		.passWordImg {}
+		
+		.mui-button-row {
+			margin-top: 5px;
+		}
+		
+		.mui-button-row>button {
+			width: 50%;
+			font-size: 1.35rem;
+			height: 40.32px;
+		}
+		
+		.mui-switch {
+			height: 12px;
+			width: 24px;
+			position: absolute;
+			left: 25%;
+			margin-top: 67.5px;
+		}
+		
+		.mui-switch>.mui-switch-handle {
+			height: 100%;
+			width: 40%;
+		}
+		
+		.rememberPassword {
+			left: 33%;
+		}
+		
+		.mui-scroll>.mui-icon-gear {
+			position: absolute;
+			left: 54%;
+			margin-top: 63.5px;
+			font-size: 1.6rem;
+		}
+		
+		.mui-scroll>.system_setting {
+			left: 60%;
+		}

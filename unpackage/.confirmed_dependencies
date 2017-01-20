@@ -1,0 +1,410 @@
+{
+	"login.html": {
+		"href": "login.html",
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/login_1920.css",
+			"images/login_01_01.png",
+			"images/user.png",
+			"fonts/mui.ttf",
+			"images/password.png",
+			"images/index_system_setting.jpg",
+			"css/login.css",
+			"images/login_system_logo_03.png",
+			"css/app.css",
+			"js/login.js"
+		],
+		"refer": [
+			"main.html"
+		],
+		"priority": 0
+	},
+	"xj_text_01.html": {
+		"resources": [
+			"xj_text_02.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"xj_text_03.html",
+			"xj_text_02.html"
+		]
+	},
+	"xj_text_02.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"operationStatistics.html": {
+		"resources": [
+			"images/9.png",
+			"images/16.png",
+			"js/operationStatistics.js",
+			"css/operationStatistics.css",
+			"css/base.css",
+			"tpl/echarts.min.js",
+			"js/sub.js",
+			"images/3.png",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/iconfont.woff",
+			"images/m5.png",
+			"fonts/mui.ttf",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"operationStatistics_area.html",
+			"operationStatistics_dtpicker.html",
+			"operationStatistics_ClassCode.html",
+			"dingdanxinxi.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"totalTarget.html",
+			"js/mui.min.js",
+			"images/m2.png",
+			"images/m4.png",
+			"css/mui.min.css",
+			"images/m5.png",
+			"images/m3.png",
+			"images/m1-1.png",
+			"images/m5-1.png",
+			"images/m4-1.png",
+			"images/m3-1.png",
+			"images/m2-1.png",
+			"fonts/mui.ttf",
+			"images/m1.png",
+			"equipStatistics.html",
+			"homePage.html"
+		],
+		"refer": [
+			"operationStatistics.html",
+			"checkStatistics.html",
+			"totalTarget.html",
+			"equipStatus.html",
+			"equipStatistics.html",
+			"enquiry.html",
+			"service.html",
+			"documentary.html",
+			"homePage.html"
+		]
+	},
+	"checkStatistics.html": {
+		"resources": [
+			"js/checkStatistics.js",
+			"css/checkStatistics.css",
+			"css/iconfont.css",
+			"css/iconfont.woff",
+			"images/header_base_01.png",
+			"js/sub.js",
+			"css/base.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"checkStatistics_childrenWeb.html",
+			"checkStatistics_area.html",
+			"dingdanxinxi.html",
+			"notOver.html"
+		]
+	},
+	"totalTarget.html": {
+		"resources": [
+			"images/2.png",
+			"css/base.css",
+			"js/sub.js",
+			"images/3.png",
+			"images/1.png",
+			"js/mui.min.js",
+			"images/4.png",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/totalTarget.css",
+			"js/totalTarget.js",
+			"tpl/echarts.min.js",
+			"images/login_01_01.png",
+			"fonts/mui.ttf",
+			"images/totalTarget_userImg.png",
+			"images/header_base_01.png",
+			"images/s3.jpg",
+			"images/s2.jpg",
+			"images/s1.jpg",
+			"images/s4.jpg"
+		],
+		"refer": [
+			"totalTarget_area.html",
+			"totalTarget_dtpicker.html",
+			"checkStatistics_childrenWeb.html",
+			"dingdanxinxi.html"
+		]
+	},
+	"equipStatus.html": {
+		"resources": [
+			"js/equipStatus.js",
+			"css/equipStatus.css",
+			"images/header_base_01.png",
+			"css/base.css",
+			"js/sub.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"tpl/echarts.min.js",
+			"images/1.png",
+			"fonts/mui.ttf",
+			"images/5.png"
+		],
+		"refer": [
+			"equipStatus_area.html"
+		]
+	},
+	"equipStatistics.html": {
+		"resources": [
+			"css/equipStatistics.css",
+			"js/equipStatistics.js",
+			"images/5.png",
+			"images/m1.png",
+			"images/14.png",
+			"fonts/mui.ttf",
+			"images/header_base_01.png",
+			"js/sub.js",
+			"tpl/echarts.min.js",
+			"css/base.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"equipStatistics_area.html",
+			"equipStatistics_classCode.html"
+		]
+	},
+	"totalTarget_area.html": {
+		"resources": [
+			"js/mui.min.js",
+			"images/totalTarget_area.png",
+			"css/area.css",
+			"css/mui.min.css",
+			"images/index_system_setting.jpg",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"checkStatistics_childrenWeb.html": {
+		"resources": [
+			"css/checkStatistics_childrenWeb.css",
+			"css/base.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/iconfont.woff",
+			"images/header_base_01.png"
+		]
+	},
+	"totalTarget_dtpicker.html": {
+		"resources": [
+			"css/base.css",
+			"js/mui.picker.min.js",
+			"js/mui.min.js",
+			"css/dtpicker.css",
+			"css/area.css",
+			"css/mui.min.css",
+			"css/mui.picker.min.css",
+			"images/index_system_setting.jpg",
+			"images/totalTarget_area.png",
+			"fonts/mui.ttf"
+		]
+	},
+	"equipStatus_area.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/area.css",
+			"css/mui.min.css",
+			"images/index_system_setting.jpg",
+			"images/totalTarget_area.png",
+			"fonts/mui.ttf"
+		]
+	},
+	"checkStatistics_area.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/area.css",
+			"css/mui.min.css",
+			"images/index_system_setting.jpg",
+			"images/totalTarget_area.png",
+			"fonts/mui.ttf"
+		]
+	},
+	"operationStatistics_area.html": {
+		"resources": [
+			"images/index_system_setting.jpg",
+			"images/totalTarget_area.png",
+			"css/area.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"operationStatistics_dtpicker.html": {
+		"resources": [
+			"css/base.css",
+			"js/mui.min.js",
+			"css/dtpicker.css",
+			"css/area.css",
+			"css/mui.min.css",
+			"js/operationStatistics_dtpicker.js",
+			"css/mui.picker.min.css"
+		]
+	},
+	"operationStatistics_ClassCode.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/totalTarget_area.png",
+			"css/area.css",
+			"images/index_system_setting.jpg",
+			"fonts/mui.ttf"
+		]
+	},
+	"equipStatistics_area.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/area.css",
+			"css/mui.min.css",
+			"images/index_system_setting.jpg",
+			"images/totalTarget_area.png",
+			"fonts/mui.ttf"
+		]
+	},
+	"equipStatistics_classCode.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/area.css",
+			"css/mui.min.css"
+		]
+	},
+	"dingdanxinxi.html": {
+		"resources": [
+			"css/checkStatistics_childrenWeb.css",
+			"css/base.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/header_base_01.png"
+		]
+	},
+	"notOver.html": {
+		"resources": [
+			"css/checkStatistics_childrenWeb.css",
+			"css/base.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"images/header_base_01.png"
+		]
+	},
+	"enquiry.html": {
+		"resources": [
+			"js/equipStatus.js",
+			"css/equipStatus.css",
+			"css/base.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/enquiry.css",
+			"images/header_base_01.png",
+			"js/enquiry.js",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"enquiryChildrenHtml.html"
+		]
+	},
+	"service.html": {
+		"resources": [
+			"js/operationStatistics.js",
+			"css/operationStatistics.css",
+			"css/base.css",
+			"js/service.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"dingdanxinxi.html"
+		]
+	},
+	"documentary.html": {
+		"resources": [
+			"js/checkStatistics.js",
+			"css/checkStatistics.css",
+			"css/iconfont.css",
+			"css/base.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/header_base_01.png",
+			"js/documentary.js"
+		],
+		"refer": [
+			"notOver.html"
+		]
+	},
+	"homePage.html": {
+		"resources": [
+			"images/s3.jpg",
+			"css/iconfont.css",
+			"images/s2.jpg",
+			"css/totalTarget.css",
+			"js/totalTarget.js",
+			"images/s1.jpg",
+			"images/s4.jpg",
+			"css/base.css",
+			"images/header_base_01.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/03.png",
+			"images/01.png",
+			"fonts/mui.ttf",
+			"images/02.png",
+			"images/04.png",
+			"images/01.jpg",
+			"js/homePage.js"
+		],
+		"refer": [
+			"checkStatistics_childrenWeb.html",
+			"homePage_childrenWeb.html"
+		]
+	},
+	"enquiryChildrenHtml.html": {
+		"resources": [
+			"css/checkStatistics_childrenWeb.css",
+			"css/base.css",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"images/header_base_01.png"
+		]
+	},
+	"homePage_childrenWeb.html": {
+		"resources": [
+			"css/checkStatistics_childrenWeb.css",
+			"css/base.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/header_base_01.png"
+		]
+	}
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+				margin: 1px 0 0 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-bar mui-bar-nav" style="background: url(images/header_base_01.png);">
+
+			<h1 class="mui-title" style="color: white;">询价</h1>
+		</div>
+		<div class="mui-content">
+			<div style="width: 100%;">
+				<p style="margin-left: 15px;margin-top: 15px;font-size: 16px;">
+					订单信息
+				</p>
+				<div style="width: 100%;">
+					<p style="float: left;width: 100%;text-align: center;"><input type="text" id="orderInf" style="text-align: left;width: 90%;font-size: 12px;" placeholder="填写订单用于生产类别：例如鸡蛋面456克"></p>
+
+				</div>
+			</div>
+
+			<div style="width: 100%;">
+				<p style="margin-left: 15px;margin-top: 15px;font-size: 16px;">体积</p>
+				<div style="width: 100%;">
+					<p style="float: left;width: 33.3%;text-align: center;">宽(cm)</p>
+					<p style="float: left;width: 33.3%;text-align: center;">高(cm)</p>
+					<p style="float: left;width: 33.3%;text-align: center;">厚(双)</p>
+				</div>
+				<div style="width: 100%;">
+					<p style="float: left;width: 33.3%;text-align: center;"><input type="text" id="wid" style="text-align: center;width: 80%;font-size: 12px;"></p>
+					<p style="float: left;width: 33.3%;text-align: center;"><input type="text" id="hei" style="text-align: center;width: 80%;font-size: 12px;"></p>
+					<p style="float: left;width: 33.3%;text-align: center;"><input type="text" id="thickNess" style="text-align: center;width: 80%;font-size: 12px;"></p>
+				</div>
+			</div>
+			<div style="width: 100%;">
+				<p style="margin-left: 15px;margin-top: 15px;font-size: 16px;">参数</p>
+				<div style="width: 100%;">
+					<span style="margin-left: 25px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">袋型</span>
+					<select id="bagType" style="width: 75%;float: left;height: 31px;margin-left: 15px;font-size: 12px;line-height: 12px;color: #666;">
+						<option selected="selected">未选择</option>
+						<option>CPP</option>
+						<option>OPP</option>
+					</select>
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 25px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">印模</span>
+					<select id="print" style="width: 75%;float: left;height: 31px;margin-left: 15px;font-size: 12px;line-height: 12px;color: #666;">
+						<option selected="selected">未选择</option>
+						<option>CPP</option>
+						<option>OPP</option>
+					</select>
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 3px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">复合层数</span>
+					<select id="fatherSel" style="width: 75%;float: left;height: 31px;margin-left: 10px;font-size: 12px;line-height: 12px;color: #666;">
+						<option selected="selected">未选择</option>
+						<option>一层复膜</option>
+						<option>二层复膜</option>
+						<option>三层复膜</option>
+					</select>
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 3px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">一层复膜</span>
+					<select id="firstSel" style="width: 75%;float: left;height: 31px;margin-left: 10px;font-size: 12px;line-height: 12px;color: #666;">
+						<option selected="selected">未选择</option>
+						<option>CPP</option>
+						<option>OPP</option>
+					</select>
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 3px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">二层复膜</span>
+					<select id="secondSel" style="width: 75%;float: left;height: 31px;margin-left: 10px;font-size: 12px;line-height: 12px;color: #666;">
+						<option selected="selected">未选择</option>
+						<option>CPP</option>
+						<option>OPP</option>
+					</select>
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 3px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">三层复膜</span>
+					<select id="thirdSel" style="width: 75%;float: left;height: 31px;margin-left: 10px;font-size: 12px;line-height: 12px;color: #666;">
+						<option selected="selected">未选择</option>
+						<option>CPP</option>
+						<option>OPP</option>
+					</select>
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 25px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">订量&nbsp;</span>
+					<input type="text" id="num" style="width: 35%;font-size: 12px;height: 30px;margin-left: 12px;" placeholder="数量">
+					<input type="text" id="unit" style="width: 30%;font-size: 12px;height: 30px;" placeholder="单位">
+				</div>
+				<div style="width: 100%;">
+					<span style="margin-left: 25px;color: #666;float: left;display: inline-block;margin-top: 5px;font-size: 14px;">备注:&nbsp;</span>
+					<textarea id="beizhu" style="font-size: 12px;width: 66%;margin-left: 9px;"></textarea>
+				</div>
+			</div>
+			<div style="width: 100%;text-align: center;" id="btnOrder">
+				<button type="button" class="mui-btn mui-btn-blue">询价</button>
+			</div>
+			
+			<div style="width: 100%;">
+				<p style="margin-left: 15px;margin-top: 15px;font-size: 16px;">
+					正在询价订单列表:
+				</p>
+				<p style="font-size: 10px;margin-left: 15px;">(红色代表订单已提交，厂家正在给出价格)</p>
+				<p style="font-size: 10px;margin-left: 15px;">(绿色代表厂家已根据订单给出价格，请点击查看详情)</p>
+				<p style="font-size: 10px;margin-left: 15px;">(黄色代表，厂家正在准备生产)</p>
+				
+				<ul class="mui-table-view" id="enquiryTask">
+				       <!-- <li class="mui-table-view-cell">
+				            <a class="mui-navigate-right">
+				                
+				            </a>
+				        </li>
+				        <li class="mui-table-view-cell">
+				            <a class="mui-navigate-right">
+				                 
+				            </a>
+				        </li>
+				        <li class="mui-table-view-cell">
+				            <a class="mui-navigate-right">
+				                 
+				            </a>
+				        </li>-->
+				 </ul>
+				 <p style="text-align: center;margin-top: 20px;">
+					<button type="button" class="mui-btn mui-btn-blue" id="btnReload">刷新</button>
+				</p>
+			</div>
+			<div style="height: 20px;"></div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script src="js/enquiry.js"></script>
+	</body>
+
+</html>

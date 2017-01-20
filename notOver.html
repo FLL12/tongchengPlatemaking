@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/checkStatistics_childrenWeb.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	</head>
+
+	<body>
+		<div class="mui-bar mui-bar-nav" style="background: url(images/header_base_01.png);">
+		    <a class="mui-icon mui-icon-left-nav mui-pull-left" style="color: white;" id="back"></a>
+		    <h1 class="mui-title" style="color: white">正在制作订单具体信息</h1>
+		</div>
+		<div class="mui-content" id="work_content">
+			<div style="margin-top: 10px;margin-left: 10px;">
+				<p style="margin-left: 10px;margin-top: 10px;font-size: 14px;" id="orderCon"></p>
+				<p style="margin-left: 10px;font-size: 14px;" id="orderCon">订单详情：</p>
+				<p style="margin-left: 68px;margin-top: 10px;width: 60%;" id="orderContent"></p>
+		    	<div style="width: 90%;margin-left: 5%;">
+		    		<div id="status3" class="step" style="float: left;height: 20px;width: 20px;border-radius: 50%;border: 1px solid #DDDDDD;background:#DDDDDD;"></div>
+	    			<p style="float: left;margin-left: 10px;">已接受订单<span id="status3Sapn"></span></p> 
+		    	</div>
+		    	<div style="width: 90%;margin-left: 5%;clear: both;">
+		    		<div id="status4" class="step" style="float: left;height: 20px;width: 20px;border-radius: 50%;border: 1px solid #DDDDDD;background:#DDDDDD;"></div>
+	    			<p style="float: left;margin-left: 10px;">正在制版中<span  id="status4Sapn"></span></p>
+		    	</div>
+				 <div style="width: 90%;margin-left: 5%;clear: both;">
+		    		<div id="status5" class="step" style="float: left;height: 20px;width: 20px;border-radius: 50%;border: 1px solid #DDDDDD;background:#DDDDDD;"></div>
+	    			<p style="float: left;margin-left: 10px;">正在印刷中<span  id="status5Sapn"></span></p>
+		    	</div>
+		    	<div style="width: 90%;margin-left: 5%;clear: both;">
+		    		<div id="status6" class="step" style="float: left;height: 20px;width: 20px;border-radius: 50%;border: 1px solid #DDDDDD;background:#DDDDDD;"></div>
+	    			<p style="float: left;margin-left: 10px;">正在复合中<span  id="status6Sapn"></span></p>
+		    	</div>
+		    	<div style="width: 90%;margin-left: 5%;clear: both;">
+		    		<div id="status7" class="step" style="float: left;height: 20px;width: 20px;border-radius: 50%;border: 1px solid #DDDDDD;background:#DDDDDD;"></div>
+	    			<p style="float: left;margin-left: 10px;">正在出货中<span  id="status7Sapn"></span></p>
+		    	</div>	
+		    	
+		    	
+		    	<div style="width: 90%;margin-left: 5%;clear: both;">
+	    			<p style="float: left;margin-left: 10px;">制作流程备注信息：<span  id="statusAll"></span></p>
+		    	</div>
+		    </div>
+		  
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function () {
+				var self  = plus.webview.currentWebview();
+				var orderNum = self.orderNum;
+				var arr = [];
+				document.getElementById('orderCon').innerHTML = '订单编号：' + orderNum;
+				function documentaryChildren () {
+				plus.nativeUI.showWaiting('正在加载中');
+				mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebRoot/GetAllOrder?Model=0&Type=1&Condition=&CreatedBy='+ localStorage.getItem('userCode') +'&CurrentPage=0&EachPage=10', {
+					data: null,
+					dataType: 'json', //返回    
+					type: 'get',
+					timeout: 5000,
+					success: function(data) {//服务器返回响应，根据响应结果，分析是否登陆成功
+						console.log(JSON.stringify(data))
+						mui.each(data,function (index,item) {
+							if ( item.OrderCode == orderNum) {
+								document.getElementById('orderContent').innerHTML = item.Remark; 
+								if ( item.Status == '3') {
+										for ( var i = 0; i < document.getElementsByClassName('step').length; i ++) {
+											document.getElementsByClassName('step')[i].style.background = '#DDDDDD';
+										}
+										document.getElementById('status3').style.background = 'lightgreen';
+										arr.push(item.FlowRemark);
+										document.getElementById('statusAll').innerHTML = item.FlowRemark;
+										
+								} else if ( item.Status == '4') {
+										for ( var i = 0; i < document.getElementsByClassName('step').length; i ++) {
+											document.getElementsByClassName('step')[i].style.background = '#DDDDDD';
+										}
+										document.getElementById('status3').style.background = 'lightgreen';
+										document.getElementById('status4').style.background = 'lightgreen';
+										arr.push(item.FlowRemark);
+										document.getElementById('statusAll').innerHTML = item.FlowRemark;
+										
+								} else if ( item.Status == '5') {
+										for ( var i = 0; i < document.getElementsByClassName('step').length; i ++) {
+											document.getElementsByClassName('step')[i].style.background = '#DDDDDD';
+										}
+										document.getElementById('status3').style.background = 'lightgreen';
+										document.getElementById('status4').style.background = 'lightgreen';
+										document.getElementById('status5').style.background = 'lightgreen';
+										arr.push(item.FlowRemark);
+										document.getElementById('statusAll').innerHTML = item.FlowRemark;
+										
+								} else if (item.Status == '6') {
+										for ( var i = 0; i < document.getElementsByClassName('step').length; i ++) {
+											document.getElementsByClassName('step')[i].style.background = '#DDDDDD';
+										}
+										document.getElementById('status3').style.background = 'lightgreen';
+										document.getElementById('status4').style.background = 'lightgreen';
+										document.getElementById('status5').style.background = 'lightgreen';
+										document.getElementById('status6').style.background = 'lightgreen';
+										arr.push(item.FlowRemark);
+										document.getElementById('statusAll').innerHTML = item.FlowRemark;
+										
+								} else if ( item.Status == '7') {
+										for ( var i = 0; i < document.getElementsByClassName('step').length; i ++) {
+											document.getElementsByClassName('step')[i].style.background = '#DDDDDD';
+										}
+										document.getElementById('status3').style.background = 'lightgreen';
+										document.getElementById('status4').style.background = 'lightgreen';
+										document.getElementById('status5').style.background = 'lightgreen';
+										document.getElementById('status6').style.background = 'lightgreen';
+										document.getElementById('status7').style.background = 'lightgreen';
+										arr.push(item.FlowRemark);
+										document.getElementById('statusAll').innerHTML = item.FlowRemark;
+										
+								}
+							}
+							
+							
+							
+							
+						})
+							
+						
+						setTimeout(function () {
+							plus.nativeUI.closeWaiting();
+						},300)
+					},
+					error: function() {
+						//异常处理
+						mui.toast('数据请求失败') 
+					}
+					
+				});
+			}
+			documentaryChildren();
+				document.getElementById('back').onclick = function () {
+					mui.back();
+					mui.fire(plus.webview.getWebviewById('documentary'),'documentary');
+				}
+				
+				
+			})
+		</script>
+	</body>
+
+</html>

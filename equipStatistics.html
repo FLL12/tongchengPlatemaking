@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/equipStatistics.css"/>
+		<script type="text/javascript"src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/sub.js"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<section class="header-for-time-area">
+		<div class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<!--<a class="mui-icon mui-icon-settings mui-pull-right"  id="time"></a>-->
+			<a class="mui-icon mui-icon-search mui-pull-right" id="search"></a>
+			<h1 class="mui-title" style="color: white;">设备统计</h1>
+			<input type="hidden" value="" id="forArea">
+		</div>	
+		<!--<div class="information"><span id="checkStatistics_area" class="">地址</span><span id="checkStatistics_time">时间</span>--></div>
+		</section>
+		<div class="mui-content">
+		    <div>
+			<div id="item1" class="mui-control-content mui-active">
+				<dl>
+					<dt><img src="images/5.png"><span>设备总数量</span><span class="num" id="numFir">15556</span></dt>
+					<dd style="height: 180px;">
+						<div class="echartsContent" id="equipStatistics_first"></div>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="images/14.png"><span>前十品牌比例</span><span class="num" id="numSec">1581556</span></dt>
+					<dd style="height: 220px;">
+						<div class="echartsContent" id="equipStatistics_second"></div>
+					</dd> 
+				</dl>
+				<dl>
+					<dt><img src="images/m1.png"><span>单位设备分布</span><span class="classCodeInput"><input id="equipName" type="text" readonly="readonly"value="全部设备"></span></dt>
+					<dd style="height:250px;">
+						<div class="echartsContent" id="equipStatistics_third"></div>
+					</dd>
+				</dl>
+			   
+				<dl style="height: 20px;"></dl>
+			</div>
+			
+				<dl style="height: 20px;">	
+				</dl>
+			</div>
+		</div>
+		<script src="tpl/echarts.min.js"></script>
+		
+		<script type="text/javascript" src="js/equipStatistics.js"></script>
+	</body>
+
+</html>
